@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Recruitment System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .card h2 { color: #2c3e50; margin-bottom: 15px; }
+        .upload-area { border: 2px dashed #3498db; border-radius: 8px; padding: 30px; text-align: center; cursor: pointer; transition: 0.3s; }
+        .upload-area:hover { background: #ecf0f1; }
+        .btn { background: #3498db; color: white; border: none; padding: 12px 24px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .btn:hover { background: #2980b9; }
+        .result { margin-top: 15px; padding: 15px; background: #ecf0f1; border-radius: 5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: Arial; resize: vertical; }
+        input[type="file"] { display: none; }
+        .success { color: #27ae60; }
+        .error { color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎯 Smart Recruitment System</h1>
+        <p>AI-Powered Hiring Intelligence Platform</p>
+    </div>
+
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <h2>📄 Resume Upload</h2>
+                <div class="upload-area" onclick="document.getElementById('resumeFile').click()">
+                    <p>Click to upload resume (PDF, DOCX, TXT)</p>
+                </div>
+                <input type="file" id="resumeFile" accept=".pdf,.docx,.txt" onchange="uploadResume()">
+                <div id="resumeResult" class="result" style="display:none;"></div>
+            </div>
+
+            <div class="card">
+                <h2>📸 Face Verification</h2>
+                <div class="upload-area" onclick="document.getElementById('faceFile').click()">
+                    <p>Click to upload candidate photo</p>
+                </div>
+                <input type="file" id="faceFile" accept="image/*" onchange="uploadFace()">
+                <div id="faceResult" class="result" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎯 Candidate Ranking</h2>
+            <textarea id="jobDesc" rows="5" placeholder="Enter job description here..."></textarea>
+            <button class="btn" onclick="rankCandidates()" style="margin-top: 10px;">Rank Candidates</button>
+            <div id="rankResult" class="result" style="display:none;"></div>
+        </div>
+
+        <div class="card">
+            <h2>📊 Analytics Dashboard</h2>
+            <button class="btn" onclick="window.location.href='/dashboard'">View Dashboard</button>
+        </div>
+
+        <div class="card">
+            <h2>📁 Available Resumes</h2>
+            <button class="btn" onclick="loadResumes()">View All Resumes</button>
+            <div id="resumeList" class="result" style="display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        async function uploadResume() {
+            const file = document.getElementById('resumeFile').files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('resume', file);
+
+            const result = document.getElementById('resumeResult');
+            result.style.display = 'block';
+            result.innerHTML = 'Processing...';
+
+            try {
+                const response = await fetch('/upload_resume', { method: 'POST', body: formData });
+                const data = await response.json();
+                
+                if (data.success) {
+                    const skillCount = data.data.skills ? data.data.skills.length : 0;
+                    result.innerHTML = `<div class="success">✓ Resume parsed and stored for ranking!</div>
+                        <p><strong>Name:</strong> ${data.data.name || 'Not found'}</p>
+                        <p><strong>Skills:</strong> ${skillCount} found</p>
+                        <p><strong>Email:</strong> ${data.data.email || 'Not found'}</p>
+                        <p><strong>Phone:</strong> ${data.data.phone || 'Not found'}</p>`;
+                } else {
+                    result.innerHTML = `<div class="error">✗ ${data.error}</div>`;
+                }
+            } catch (error) {
+                result.innerHTML = `<div class="error">✗ Upload failed</div>`;
+            }
+        }
+
+        async function uploadFace() {
+            const file = document.getElementById('faceFile').files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('image', file);
+
+            const result = document.getElementById('faceResult');
+            result.style.display = 'block';
+            result.innerHTML = 'Processing...';
+
+            try {
+                const response = await fetch('/verify_face', { method: 'POST', body: formData });
+                const data = await response.json();
+                
+                if (data.success) {
+                    result.innerHTML = `<div class="success">✓ ${data.faces_detected} face(s) detected</div>`;
+                } else {
+                    result.innerHTML = `<div class="error">✗ ${data.error}</div>`;
+                }
+            } catch (error) {
+                result.innerHTML = `<div class="error">✗ Upload failed</div>`;
+            }
+        }
+
+        async function rankCandidates() {
+            const jobDesc = document.getElementById('jobDesc').value;
+            if (!jobDesc.trim()) {
+                alert('Please enter a job description');
+                return;
+            }
+
+            const result = document.getElementById('rankResult');
+            result.style.display = 'block';
+            result.innerHTML = 'Ranking candidates...';
+
+            try {
+                const response = await fetch('/rank_candidates', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ job_description: jobDesc })
+                });
+                const data = await response.json();
+                
+                if (data.success && data.candidates && data.candidates.length > 0) {
+                    let html = '<div class="success">✓ Ranking complete</div><br>';
+                    data.candidates.forEach((c, i) => {
+                        html += `<p><strong>${i+1}. ${c.name || 'Unknown'}</strong> - Score: ${c.total_score ? c.total_score.toFixed(1) : c.score || 0} (${c.grade})</p>`;
+                    });
+                    result.innerHTML = html;
+                } else if (data.success) {
+                    result.innerHTML = '<div class="error">No candidates found in data/resumes/test folder</div>';
+                } else {
+                    result.innerHTML = `<div class="error">✗ ${data.error || 'Ranking failed'}</div>`;
+                }
+            } catch (error) {
+                result.innerHTML = `<div class="error">✗ Ranking failed: ${error.message}</div>`;
+            }
+        }
+
+        async function loadResumes() {
+            const result = document.getElementById('resumeList');
+            result.style.display = 'block';
+            result.innerHTML = 'Loading resumes...';
+
+            try {
+                const response = await fetch('/api/resumes');
+                const data = await response.json();
+                
+                if (data.resumes && data.resumes.length > 0) {
+                    let html = `<div class="success">✓ Found ${data.total} resume(s)</div><br>`;
+                    html += '<table style="width:100%; border-collapse: collapse;">';
+                    html += '<tr><th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Filename</th>';
+                    html += '<th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Source</th>';
+                    html += '<th style="text-align:left; padding:8px; border-bottom:1px solid #ddd;">Actions</th></tr>';
+                    
+                    data.resumes.forEach(r => {
+                        html += `<tr>`;
+                        html += `<td style="padding:8px; border-bottom:1px solid #ddd;">${r.filename}</td>`;
+                        html += `<td style="padding:8px; border-bottom:1px solid #ddd;">${r.source}</td>`;
+                        html += `<td style="padding:8px; border-bottom:1px solid #ddd;">`;
+                        html += `<a href="/api/resume/${r.filename}" target="_blank" class="btn" style="padding:5px 10px; font-size:12px; margin-right:5px;">View</a>`;
+                        if (r.source === 'uploaded') {
+                            html += `<button onclick="deleteResume('${r.filename}')" class="btn" style="padding:5px 10px; font-size:12px; background:#e74c3c;">Delete</button>`;
+                        }
+                        html += `</td></tr>`;
+                    });
+                    html += '</table>';
+                    result.innerHTML = html;
+                } else {
+                    result.innerHTML = '<div class="error">No resumes found</div>';
+                }
+            } catch (error) {
+                result.innerHTML = `<div class="error">✗ Failed to load resumes</div>`;
+            }
+        }
+
+        async function deleteResume(filename) {
+            if (!confirm(`Delete ${filename}?`)) return;
+
+            try {
+                const response = await fetch(`/api/resume/${filename}`, {
+                    method: 'DELETE'
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('Resume deleted successfully');
+                    loadResumes(); // Reload list
+                } else {
+                    alert(`Error: ${data.error}`);
+                }
+            } catch (error) {
+                alert('Failed to delete resume');
+            }
+        }
+    </script>
+</body>
+</html>

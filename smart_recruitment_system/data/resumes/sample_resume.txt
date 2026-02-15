@@ -1,0 +1,46 @@
+
+John Doe
+Senior Software Engineer
+
+Email: john.doe@email.com
+Phone: +1-555-123-4567
+LinkedIn: linkedin.com/in/johndoe
+GitHub: github.com/johndoe
+
+PROFESSIONAL SUMMARY
+Experienced software engineer with 5+ years in full-stack development.
+
+TECHNICAL SKILLS
+Programming Languages: Python, Java, JavaScript, C++
+Web Technologies: React, Angular, Node.js, Django, Flask
+Databases: MySQL, PostgreSQL, MongoDB, Redis
+Cloud & DevOps: AWS, Docker, Kubernetes, Jenkins, Git
+Machine Learning: TensorFlow, PyTorch, Scikit-learn
+
+SOFT SKILLS
+Leadership, Communication, Problem Solving, Teamwork
+
+EXPERIENCE
+Senior Software Engineer | Tech Corp | 2020-Present
+- Led team of 5 developers
+- Implemented microservices architecture
+- Improved system performance by 40%
+
+Software Engineer | StartupXYZ | 2018-2020
+- Developed RESTful APIs using Python and Flask
+- Built responsive web applications with React
+
+EDUCATION
+Master of Science in Computer Science
+Stanford University | 2018
+
+Bachelor of Science in Computer Science
+MIT | 2016
+
+PROJECTS
+- E-commerce Platform: Built scalable platform using Django and React
+- ML Recommendation System: Developed using Python and TensorFlow
+
+CERTIFICATIONS
+- AWS Certified Solutions Architect
+- Google Cloud Professional

@@ -1,0 +1,34 @@
+{
+  "file_path": "data/uploads\\RESUME_Updated.pdf",
+  "raw_text": "RESUME\nK SANDHYA\nH.No. 2-117,\nMudigedu Village ,\nSanjamala (M), Nandyal (Dist) Mobile No: 6281845626\nPin code -518196.\nCAREER OBJECTIVE:\nTo work in a challenging and creative environment and effectively utilize my skills to\ncontribute towards the goals of the organization besides gaining as much knowledge as possible\nin order to achieve expertise in the working domain.\nACADEMIC QUALIFICATIONS:\nCourse Institute Name University Year of  of Marks\npassing\nM.Sc KVR Govt Degree Cluster\nCollege , Kurnool University, AP 2024 7.52\nB.Sc KVR Govt Degree Rayalaseema\nBZC College , Kurnool University , AP 2022 82.30\nIntermediate AP Balayogi Gurukulam Board of Intermediate\nBIPC Jr College , Koilakuntla , Education, Ap 2019 84.70\nKurnool\nZP High School , Board of Secondary\nSSC Koilakuntla, Kurnool Education, AP 2017 88.00\nTECHINICAL SKILLS:\n Ms Office\n Basics of Computer.\nPERSONAL SKILLS:\n Good Communication skills and Interpersonal skills.\n Innovative, dynamic and confident.\n Self-assured and have excellent Presentation ability.\nEXPERIENCE DETAILS :\n 2 Years Experience as a Cashier at D Mart, Kurnool.\nPERSONAL PROFILE:\nName : K Sandhya\nFather Name : K Venkata Ramana\nGender : Female\nDate of Birth : 19-04-2001\nReligion : Hindu\nNationality : INDIAN\nMarital status : Unmarried\nLanguages known : Telugu, English and Hindi.\nDECLARATION:\nI hereby declare that the above provided details are true to the best of my knowledge and\nbelief.\nOTHER SKILLS / ACHIEVEMENTS:\n- NCC Certificates B  C\n- Karate(Orange Belt)\nDate :\nLocation : KURNOOL ( K SANDHYA )",
+  "entities": {
+    "name": "K Sandhya",
+    "email": null,
+    "phone": "6281845626",
+    "linkedin": null,
+    "github": null,
+    "location": "Kurnool University, AP"
+  },
+  "skills": {
+    "technical": {},
+    "soft": [
+      "Communication",
+      "Presentation"
+    ]
+  },
+  "sections": {
+    "education": 372,
+    "experience": 1030,
+    "skills": 214,
+    "certifications": 1469
+  },
+  "summary": {
+    "name": "K Sandhya",
+    "email": null,
+    "phone": "6281845626",
+    "total_technical_skills": 0,
+    "total_soft_skills": 2,
+    "has_linkedin": false,
+    "has_github": false
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "file_path": "data/uploads\\Resume.pdf",
+  "raw_text": "PANDURANGAREDDY KOTTE\nAspiring Data Scientist  Machine Learning Intern\nNandyal, Andhra Pradesh  +91 8897277078  Email\nLinkedIn GitHub  LeetCode\nPROFESSIONAL SUMMARY\nAnalytical and results-driven Data Science student with technical proficiency in Machine\nLearning (ML), Python, and SQL. Proven track record of developing predictive models,\nincluding a CatBoost classification project, and architecting full-stack applications using\nFlask. Demonstrated leadership through managing large-scale college events, showcasing\nstrong project management and cross-functional team coordination skills.\nEDUCATION\n Bachelor of Technology in Computer Science and Engineering  RGM College of\nEngineering and Technology  Expected July 2027\n Pre-University Course  IIIT Srikakulam  Graduated 2023\nTECHNICAL SKILLS\n Programming Languages: Python (Advanced), Java, SQL (PostgreSQL, SQLite),\nJavaScript\n Data Science  Analysis: Exploratory Data Analysis (EDA), Pandas, NumPy,\nScikit-learn\n Machine Learning: Supervised Learning (Classification  Regression), CatBoost,\nHyperparameter Tuning, Model Evaluation\n Data Visualization: Matplotlib, Seaborn\n Web Development: Flask Framework, HTML5, CSS3\n Tools  Version Control: Git, GitHub, Jupyter Notebook, VS Code\nCERTIFICATIONS\n DATA ANALYST ASSOCIATE CERTIFICATION  DATACAMP\n PYTHON FOR DATA SCIENCE  IBM\n AUTOMATION ASSOCIATE DEVELOPER  UIPATH\n CYBERSECURITY FUNDAMENTALS  IBM\n ASSOCIATE DATABASE ADMINISTRATOR  MongoDB\n DATABASES AND SQL  RaspberryPiFoundation\n Certified in Cybersecurity (CC)  ISC2\nPROJECTS\nHeart Failure Prediction using CatBoost  May 2025  June 2025\n Engineered a robust classification model using Python to predict heart failure risk\nbased on clinical parameters.\n Conducted comprehensive Exploratory Data Analysis (EDA) and preprocessing,\nincluding feature scaling and data normalization using Pandas and Scikit-learn.\n Evaluated and compared performance across multiple algorithms, including Logistic\nRegression, SVM, and Random Forest.\n Achieved superior model performance using the CatBoost classifier, optimizing for\nhigh accuracy and F1-scores.\n Achieved 94 accuracy and a 0.92 F1-score using CatBoost, outperforming\nRandom Forest by 7\nStudent Time Management Application  JULY 2025  OCTOBER 2025\n Architecting a full-stack web application using the Flask framework to help students\nquantify and manage academic task durations.\n Developing a responsive user interface with HTML, CSS, and JavaScript to\nfacilitate task input and real-time progress tracking.\n Designing backend logic and estimation algorithms to deliver personalized time-\nmanagement insights and visual data representations.\nPulse Predict Agent  December 2025\n Developed an Agentic AI system to assist public hospitals in predicting OP/IP patient\nflow and optimizing resource allocation.\n Designed AI agents for:\no Patient inflow prediction\no Staff allocation recommendations\no Medicine and oxygen shortage forecasting\no Automated night-shift report generation\n Utilized data-driven forecasting, rule-based decision logic, and Python-based\npipelines to simulate real hospital scenarios.\n Focused on scalability and real-world applicability for government hospitals.\nHACKATHONS  ACHIEVEMENTS\nParticipant  GDG Hyderabad Agentathon (Guinness World Record Holder)\n Participated in the GDG Hyderabad Agentathon, which set a Guinness World\nRecord for the most participants in a single hackathon.\n Collaborated with diverse teams to build agent-based AI solutions under strict time\nconstraints.\n Gained hands-on exposure to large-scale collaborative AI development and real-world\nproblem solving.\nWORK EXPERIENCE\nClub Lead  The Codes Club  RGM College of Engineering and Technology\nNov 2025  Present\n Led and mentored 40+ students in Python, SQL, DSA, and introductory Machine\nLearning, accelerating hands-on technical proficiency.\n Organized 6+ technical workshops and coding challenges, increasing active student\nparticipation and peer learning across campus.",
+  "entities": {
+    "name": "Pandurangareddy Kotte",
+    "email": null,
+    "phone": "+918897277078",
+    "linkedin": null,
+    "github": null,
+    "location": "Machine Learning Intern\nNandyal, Andhra"
+  },
+  "skills": {
+    "technical": {
+      "programming": [
+        "Java",
+        "Javascript",
+        "Python"
+      ],
+      "web": [
+        "Css",
+        "Flask",
+        "Html"
+      ],
+      "database": [
+        "Mongodb",
+        "Postgresql",
+        "Sql",
+        "Sqlite"
+      ],
+      "ml_ai": [
+        "Machine Learning",
+        "Numpy",
+        "Pandas",
+        "Scikit-Learn"
+      ],
+      "tools": [
+        "Git",
+        "Github",
+        "Jupyter"
+      ]
+    },
+    "soft": [
+      "Analytical",
+      "Leadership",
+      "Problem Solving",
+      "Project Management",
+      "Time Management"
+    ]
+  },
+  "sections": {
+    "education": 591,
+    "experience": 3618,
+    "skills": 583,
+    "projects": 1530,
+    "certifications": 1240
+  },
+  "summary": {
+    "name": "Pandurangareddy Kotte",
+    "email": null,
+    "phone": "+918897277078",
+    "total_technical_skills": 17,
+    "total_soft_skills": 5,
+    "has_linkedin": false,
+    "has_github": false
+  }
+}

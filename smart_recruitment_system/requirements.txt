@@ -1,0 +1,25 @@
+# Core ML/DL
+tensorflow
+opencv-python
+mtcnn
+pillow
+numpy
+
+# Deep Learning Face Recognition
+deepface
+facenet-pytorch
+
+# Utilities
+python-dotenv
+
+# Web Framework
+flask
+
+# Training & Evaluation
+scikit-learn
+matplotlib 
+
+# NLP & Text Processing
+PyPDF2==3.0.1
+pdfplumber==0.10.3
+python-docx==1.1.0
